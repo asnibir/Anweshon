@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "authentication.apps.AuthenticationConfig",
     "scraping.apps.ScrapingConfig",
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

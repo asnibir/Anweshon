@@ -1,5 +1,75 @@
-<form action="">
-    {{form}}
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
 
-    <input type="submit" , name="Search">
-</form>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Anweshon {% block title %}
+        {% endblock %} </title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'css/main.css'%}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+    <main role="main">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card mt-4">
+                    <form action="">
+                        <div class="card-body">
+                            <div class="card-title py-1">
+                                <h3>Anweshon</h3>
+                                {{form | crispy}}
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <input type="submit" value="Search" class="btn btn-block btn-primary submit-btn">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><a href="{{amazon.url}}">{{amazon.website_name}}</a></div>
+                    <a href="{{amazon.url}}"><img src="{{amazon.image_url}}" alt="" class="card-img-top"></a>
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{amazon.name}}
+                        </div>
+                        <div class="text">
+                            Price: {{amazon.price}} Rating: {{amazon.rating}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><a href="{{flipkart.url}}">{{flipkart.website_name}}</a></div>
+                    <a href="{{flipkart.url}}"><img src="{{flipkart.image_url}}" alt="" class="card-img-top"></a>
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{flipkart.name}}
+                        </div>
+                        <div class="text">
+                            Price : {{flipkart.price}} Rating : {{flipkart.rating}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
